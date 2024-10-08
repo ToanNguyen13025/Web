@@ -1,0 +1,22 @@
+.custom-button {
+    background-color: #8e67b8; /* Màu nền */
+    color: white; /* Màu chữ */
+    border: none; /* Không có viền */
+    padding: 10px 20px; /* Khoảng cách bên trong */
+    text-align: center; /* Căn giữa văn bản */
+    text-decoration: none; /* Bỏ gạch chân */
+    display: inline-block; /* Hiển thị inline block */
+    font-size: 30px; /* Kích thước chữ */
+    font-family: "Lobster", cursive;
+    margin: 4px 5px; /* Khoảng cách bên ngoài */
+    cursor: pointer; /* Con trỏ khi hover */
+    border-radius: 5px; /* Bo góc */
+    transition: background-color 0.3s; /* Hiệu ứng chuyển màu */
+    width: 200px;
+    height: 75px;
+
+}
+
+.new-button {
+    display: none;
+}
