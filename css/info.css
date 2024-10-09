@@ -1,0 +1,74 @@
+/* Reset margin mặc định của body */
+body {
+    margin: 0;
+    display: flex;
+    height: 100vh; /*Chieu cao man hinh*/
+}
+
+/*Ca hai phan chiem 50% man hinh*/
+.left, .right{
+    flex:1;
+}
+
+.left {
+    background-color: lightblue; /* Màu nền cho phần bên trái */
+}
+
+.right {
+    background-color: lightpink; /* Màu nền cho phần bên phải */
+}
+
+#img1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 10%;
+}
+
+#imgtoan {
+    position: relative;
+    top: 0%;
+    left: 0%;
+    width: 40%;
+    border-radius: 10px;
+}
+
+#imgca {
+    position: absolute;
+    top: 47.7%;
+    left: 80%;
+    transform: translate(-10%, -10);
+    max-width: 20%;
+    border-radius: 10px;
+}
+
+h1 {
+    font-family: "Baloo Tamma 2", cursive;
+    font-size: 40px;
+
+}
+
+li {
+    font-size: 25px;
+    font-family: "Baloo Tamma 2", cursive;
+}
+
+.custom-button {
+    background-color: #8e67b8; /* Màu nền */
+    color: white; /* Màu chữ */
+    border: none; /* Không có viền */
+    padding: 10px 20px; /* Khoảng cách bên trong */
+    text-align: center; /* Căn giữa văn bản */
+    text-decoration: none; /* Bỏ gạch chân */
+    display: inline-block; /* Hiển thị inline block */
+    font-size: 25px; /* Kích thước chữ */
+    font-family: "Baloo Tamma 2", cursive;
+    margin: 4px 5px; /* Khoảng cách bên ngoài */
+    cursor: pointer; /* Con trỏ khi hover */
+    border-radius: 5px; /* Bo góc */
+    transition: background-color 0.3s; /* Hiệu ứng chuyển màu */
+    width:fit-content;
+    height: 75px;
+
+}
