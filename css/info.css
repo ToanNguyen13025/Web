@@ -72,3 +72,31 @@ li {
     height: 75px;
 
 }
+
+#catcode{
+    position: absolute;
+    top: 0%;
+    left: 20%;
+    width: 30%;
+}
+#panda {
+    position: absolute;
+    top: 55%;
+    left: 55%;
+    width: 20%;
+}
+#cloud {
+    position: absolute;
+    top:0%;
+    left:82%;
+    width: 15%;
+}
+
+#day_count {
+    font-family: "Baloo Tamma 2", cursive;
+    font-size: 27px;
+    color:rgba(201, 228, 228, 0.947);
+    position: absolute;
+    top:43%;
+    left: 47.3%;
+}

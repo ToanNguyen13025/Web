@@ -16,11 +16,11 @@
         <button onclick="goBack()" class="custom-button" style="font-size: 20px; font-family: Lobster, cursive; width: auto; height: auto;">Go back</button>
         <div class ="mid_container">
             <div>
-                <h1 id = "menu_title" style = "color:cornsilk; font-size: 60px">Nơi lưu giữ kỉ niệm của tụi mình<br>Choose optionn</h1>
-                <button class = "custom-button" style="position: absolute; top:32%; left: 33.7%; width: 500px ">Thông tin đàng trai và đàng gái </button><br>
-                <button class = "custom-button" style="position: absolute; top:47%; left: 33.7%; width: 500px ">Timeline</button><br>
-                <button class = "custom-button" style="position: absolute; top:62%; left: 33.7%; width: 500px ">Memories đáng remember</button><br>
-                <button class = "custom-button" style="position: absolute; top:77%; left: 33.7%; width: 500px ">Cute lovely pics</button><br>
+                <h1 id="menu_title" style="color: cornsilk; font-size: 60px">Nơi lưu giữ kỉ niệm của tụi mình<br>Choose option</h1>
+                <button id="infobutton" class="custom-button" style="position: absolute; top:32%; left: 33.7%; width: 500px;">Thông tin đàng trai và đàng gái</button><br>
+                <button id="timelinebutton" class="custom-button" style="position: absolute; top:47%; left: 33.7%; width: 500px;">Timeline</button><br>
+                <button id="memobutton" class="custom-button" style="position: absolute; top:62%; left: 33.7%; width: 500px;">Memories đáng remember</button><br>
+                <button id="picbutton" class="custom-button" style="position: absolute; top:77%; left: 33.7%; width: 500px;">Cute lovely pics</button><br>
             </div>
             <img src = "pics/b040e76ad3b62145df9c938f4c96e5b8.jpg" alt="cat" style = "position: absolute; top:32%; left: 72%; width: 400px;">
             <img src = "pics/Funny Cute Cat.jpg" alt = "cat" style = "position: absolute; top:32%; left: 2.7%; width: 390px;">
@@ -30,5 +30,27 @@
         </div>
     </div>
     <script src="../js/scripts.js"></script>
+    <script>
+        var infobutton = document.getElementById("infobutton");
+        var timelinebutton = document.getElementById("timelinebutton");
+        var picbutton = document.getElementById("picbutton");
+        var memobutton = document.getElementById("memobutton");
+
+        infobutton.addEventListener("click", function () {
+            window.location.href = "../html/info.html";
+        });
+
+        memobutton.addEventListener("click", function () {
+            window.location.href = "../html/memories.html";
+        });
+
+        picbutton.addEventListener("click", function () {
+            window.location.href = "../html/cutepics.html";
+        });
+
+        timelinebutton.addEventListener("click", function () {
+            window.location.href = "../html/timeline.html";
+        });
+    </script>
 </body>
 </html>

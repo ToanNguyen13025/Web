@@ -36,6 +36,21 @@ accessButton.addEventListener("click", function(){
 })
 
 function goBack() {
-    window.history.back();
+    window.location.href="../html/welcome.html";
 }
 
+function goBackMenu() {
+    window.location.href="../html/menu.html";
+}
+
+const targetDate = new Date('2024-08-19');
+const dayCountElement = document.getElementById("day_count");
+
+function updateDayCount(){
+    const now = new Date();
+    const difference = now - targetDate;
+
+    const days = Math.floor(difference/(1000*60*60*24))
+    dayCountElement = `${days} ngày`;
+}
+updateDayCount();

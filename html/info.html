@@ -8,22 +8,28 @@
     <link rel="stylesheet" href="../css/info.css"> <!-- Link to your CSS file -->
     <link href="https://fonts.google.com/share?selection.family=Lobster" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400;500&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <div class = "left">
         <img id ="imgtoan" src ="pics/36. Nguyễn Khánh Toàn.jpg" alt = "toan">
+        <img id ="catcode" src ="pics/hacker-removebg-preview.png" alt ="catcode">
         <div style="margin-left: 50px;">
             <h1>Khánh Toàn</h1>
             <ul>
                 <li>DATE OF BIRTH: 13/02/2005</li>
                 <li>ZODIAC SIGN: AQUARIUS</li>
                 <li>HOBBIES: EAT, SLEEP, CADIA<img src="pics/caticon.png" style="position:absolute;max-width: 10%;"></li>
-
+                <li>SCHOOL: HUST</li>
+                <li>AOV LANE: JUNGLE</li>
             </ul>
         </div>
-        <button class="custom-button" style="position: absolute; top: 85%">Go back to menu</button>
+        <button onclick="goBackMenu()" class="custom-button" style="position: absolute; top: 87%">Go back to menu</button>
     </div>
-    <!-- <img id="img1" src="pics/9ccfe61d07681cb6007ea54cec05aa01-removebg-preview.png" alt="heart"> -->
+    <div class ="count_container">
+        <img id="img1" src="pics/9ccfe61d07681cb6007ea54cec05aa01-removebg-preview.png" alt="heart">
+        <h3 id ="day_count">0 ngày</h3>
+    </div>
     <div class = "right">
         <div style="margin-left: 50px">
             <h1>Hương Thư</h1>
@@ -31,13 +37,30 @@
                 <li>DATE OF BIRTH: 04/02/2005</li>
                 <li>ZODIAC SIGN: AQUARIUS</li>
                 <li>HOBBIES: EAT, SLEEP, NIU <img src="pics/fish-removebg-preview.png" style="position:absolute;max-width: 10%;left:80%; top:20%"></li>
+                <li>SCHOOL: RMIT</li>
+                <li>AOV LANE: SUPPORT</li>
             </ul>
         </div>
         <img id ="imgca" src ="pics/ca.jpg" alt = "ca">
+        <img id ="panda" src="pics/pandawork-removebg-preview.png" alt="">
+        <img id = "cloud" src ="pics/cloud-removebg-preview.png" alt="">
     </div>
     
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const targetDate = new Date('2024-08-19');
+            var dayCountElement = document.getElementById("day_count");
+    
+            function updateDayCount(){
+                var now = new Date();
+                var difference = now - targetDate;
+    
+                var days = Math.floor(difference/(1000*60*60*24))
+                dayCountElement.innerHTML = `${days} ngày`;
+            }
+            updateDayCount();
+        });
+        </script>
     <script src="../js/scripts.js"></script>
 </body>
-
 </html>
