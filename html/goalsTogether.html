@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html lang = "vi">
+<head>
+    <title>Goals together</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css"> <!-- Link to your CSS file -->
+    <link href="https://fonts.google.com/share?selection.family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="pics/favicon.ico" type="image/x-icon">
+    <style>
+        
+        body {
+            height: 100vh;
+            overflow: hidden;
+            font-family: "Baloo Tamma 2", cursive;
+            background-image: url(goalspics/background2.jpg);
+            background-size: cover; /* Scales the image to cover the entire page */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Ensures the image doesn't repeat */
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            padding: 20px;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            position: absolute;
+            top: 5%;
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 80px;
+        }
+        #goal-form {
+            display: flex;
+            font-family: "Baloo Tamma 2", cursive;
+            position: absolute;
+            top: 30%;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        #goal-input {
+            width: 500px;
+            padding: 10px;
+            font-family: "Baloo Tamma 2", cursive;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 20px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            margin-right: 10px;
+        }
+        button[type="submit"] {
+            padding: 10px 20px;
+            font-family: "Baloo Tamma 2", cursive;
+            background-color: #539f65;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 22px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); 
+        }
+        button[type="submit"]:hover {
+            background-color: #277037;
+        }
+        #goals-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            margin-top: 200px;
+            max-width: 900px; /* Adjust max-width for 4 columns */
+            max-height: 50vh;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 4 columns */
+            gap: 30px; /* Space between items */
+            overflow-y: auto; /* Scroll only inside the goals list */
+        }
+
+        .goal-item {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 8px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .goal-text {
+            flex-grow: 1;
+            margin-left: 10px;
+            font-size: 20px;
+        }
+        .delete-btn .edit-btn {
+            background-color: rgb(234, 235, 186);
+            font-family: "Baloo Tamma 2", cursive;
+            color: rgb(0, 0, 0);
+            border-color: rgb(40, 37, 34);
+            border: 2px;
+            padding: 2px 4px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-left: 15px;
+            font-size: larger;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .edit-btn {
+            font-family: "Baloo Tamma 2", cursive;
+            background-color: rgb(88, 191, 223);
+            color: rgb(120, 42, 134);
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .delete-btn{
+            background-color: rgb(88, 191, 223);
+            color: rgb(120, 42, 134);
+            margin-left: 10px;
+            border-radius: 5px;
+        }
+
+        .edit-btn:hover {
+            background-color: darkorange;
+        }
+
+        .delete-btn:hover {
+            background-color: darkred;
+        }
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+        .custom-button {
+            background-color: #8e67b8; /* Màu nền */
+            color: white; /* Màu chữ */
+            border: none; /* Không có viền */
+            padding: 10px 20px; /* Khoảng cách bên trong */
+            text-align: center; /* Căn giữa văn bản */
+            text-decoration: none; /* Bỏ gạch chân */
+            display: inline-block; /* Hiển thị inline block */
+            font-size: 20px; /* Kích thước chữ */
+            font-family: "Lobster", cursive;
+            margin: 4px 5px; /* Khoảng cách bên ngoài */
+            cursor: pointer; /* Con trỏ khi hover */
+            border-radius: 5px; /* Bo góc */
+            transition: background-color 0.3s; /* Hiệu ứng chuyển màu */
+            width: 200px;
+            height: 75px;
+        }
+        .custom-button:active{
+            transform: scale(0.95);
+        }
+        #believe {
+            position: absolute;
+            top:5%;
+            left: 15%;
+            width: 200px;
+        }
+        #catbee {
+            position: absolute;
+            top:10%;
+            left: 70%;
+            width: 200px;
+        }
+        #catgraduate {
+            position: absolute;
+            top:70%;
+            left: 80%;
+            width: 200px;
+        }
+        #catshark {
+            position: absolute;
+            top:60%;
+            left: 5%;
+            width: 200px;
+        }
+        #heart {
+            position: absolute;
+            top:30%;
+            left: 7%;
+            width: 200px;
+        }
+        #youcandoit {
+            position: absolute;
+            top:40%;
+            left: 80%;
+            width: 200px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Our Goals</h1>
+    <button onclick="goBackMenu()" class = "custom-button" style="position: absolute; left: 0%; top: 0%; width: fit-content; height: fit-content; ">Go back</button>
+    <form id="goal-form">
+        <input type="text" id="goal-input" placeholder="Enter a new goal" required>
+        <button type="submit">Add Goal</button>
+    </form>
+    <img id="believe" src="goalspics/believe-removebg-preview.png" rel="">
+    <img id="catbee" src="goalspics/catbee-removebg-preview.png" rel="">
+    <img id="catgraduate" src="goalspics/catgraduate-removebg-preview.png" rel="">
+    <img id="catshark" src="goalspics/catshark-removebg-preview.png" rel="">
+    <img id="heart" src="goalspics/heart-removebg-preview.png" rel="">
+    <img id="youcandoit" src="goalspics/youcandoit-removebg-preview.png" rel="">
+
+    <ul id="goals-list"></ul>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const goalForm = document.getElementById('goal-form');
+            const goalInput = document.getElementById('goal-input');
+            const goalsList = document.getElementById('goals-list');
+
+            // Load saved goals from local storage (if any)
+            const savedGoals = JSON.parse(localStorage.getItem('goals')) || [];
+            savedGoals.forEach(goal => addGoalToList(goal.text, goal.completed));
+
+            // Handle form submission
+            goalForm.addEventListener('submit', function (e) {
+                e.preventDefault(); // Prevent page reload
+
+                const newGoal = goalInput.value.trim();
+                if (newGoal !== "") {
+                    addGoalToList(newGoal, false);  // Add new goal to the UI as incomplete
+                    saveGoal(newGoal, false);       // Save to local storage
+                    goalInput.value = '';           // Clear input
+                }
+            });
+
+            // Add a goal to the list (UI)
+            function addGoalToList(goalText, completed) {
+                const li = document.createElement('li');
+                li.className = 'goal-item';
+
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.checked = completed;
+                checkbox.addEventListener('change', function() {
+                    toggleGoalStatus(goalText);
+                    textSpan.classList.toggle('completed', checkbox.checked);
+                });
+
+                const textSpan = document.createElement('span');
+                textSpan.className = 'goal-text';
+                textSpan.textContent = goalText;
+                if (completed) {
+                    textSpan.classList.add('completed');
+                }
+
+                const deleteBtn = document.createElement('button');
+                deleteBtn.className = 'delete-btn';
+                deleteBtn.textContent = 'x';
+                deleteBtn.onclick = function() {
+                    goalsList.removeChild(li);
+                    removeGoal(goalText);
+                };
+
+                const editBtn = document.createElement('button');
+                editBtn.className = 'edit-btn';
+                editBtn.textContent = 'Edit';
+                editBtn.onclick = function() {
+                    const newGoalText = prompt("Edit your goal:", goalText);
+                    if (newGoalText) {
+                        updateGoal(goalText, newGoalText);  // Update local storage
+                        textSpan.textContent = newGoalText; // Update UI
+                    }
+                };
+
+                li.appendChild(checkbox);
+                li.appendChild(textSpan);
+                li.appendChild(editBtn);
+                li.appendChild(deleteBtn);
+                goalsList.appendChild(li);
+            }
+
+            // Save goal to local storage
+            function saveGoal(goalText, completed) {
+                const goals = JSON.parse(localStorage.getItem('goals')) || [];
+                goals.push({ text: goalText, completed });
+                localStorage.setItem('goals', JSON.stringify(goals));
+            }
+
+            // Toggle goal status in local storage
+            function updateGoal(oldGoalText, newGoalText) {
+                const goals = JSON.parse(localStorage.getItem('goals')) || [];
+                const updatedGoals = goals.map(goal => {
+                    if (goal.text === oldGoalText) {
+                        return { ...goal, text: newGoalText };
+                    }
+                    return goal;
+                });
+                localStorage.setItem('goals', JSON.stringify(updatedGoals));
+            }
+            // Update goals
+            function toggleGoalStatus(goalText) {
+                const goals = JSON.parse(localStorage.getItem('goals')) || [];
+                const updatedGoals = goals.map(goal => {
+                    if (goal.text === goalText) {
+                        return { ...goal, completed: !goal.completed };
+                    }
+                    return goal;
+                });
+                localStorage.setItem('goals', JSON.stringify(updatedGoals));
+            }
+
+            // Remove goal from local storage
+            function removeGoal(goalText) {
+                let goals = JSON.parse(localStorage.getItem('goals')) || [];
+                goals = goals.filter(goal => goal.text !== goalText);
+                localStorage.setItem('goals', JSON.stringify(goals));
+            }
+        });
+
+    </script>
+    <script src="../js/scripts.js"></script>
+</body>
+
+</html>

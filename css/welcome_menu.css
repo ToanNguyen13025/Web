@@ -17,6 +17,10 @@
 
 }
 
+.custom-button:active{
+    transform: scale(0.95);
+}
+
 .new-button {
     display: none;
 }

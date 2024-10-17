@@ -1,0 +1,221 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Baloo Tamma 2", cursive;
+    padding: 20px;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.timeline {
+    position: relative;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.event {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: bold;
+
+    /* Adjust margin for spacing between events */
+    margin: 30px 0;
+    position: relative;
+}
+
+.event.left .content {
+    background-color: #FFDDC1; /* Color for left events */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: right;
+}
+.event.right .content {
+    background-color: #FFDDC1; /* Color for left events */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+
+
+.event.left {
+    justify-content: flex-start; /* Events on the left align to the right */
+    position:relative;
+    left: 30%;
+}
+
+.event.right {
+    justify-content: flex-end; /* Events on the right align to the left */
+    position: relative;
+    right:30%;
+}
+
+
+.event.left::before, .event.right::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #3c1b88; /* Event marker color */
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Move dots closer to the timeline */
+.event.left::before {
+    left: calc(19.345%); /* Closer to the central line */
+}
+
+.event.right::before {
+    left: calc(79.345%); /* Closer to the central line */
+}
+
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background-color: #1a0f62; /* Central timeline line color */
+    transform: translateX(-50%);
+}
+
+.date {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #5f3512;
+}
+
+.description {
+    font-size: 22px;
+    color: #5a3415;
+}
+
+@media screen and (max-width: 700px) {
+    .event {
+        flex-direction: column;
+        text-align: center;
+    }
+    .event.left .content, .event.right .content {
+        width: 100%;
+        text-align: center;
+    }
+    .event.left::before, .event.right::before {
+        left: 50%;
+        right: unset;
+        transform: translateX(-50%);
+    }
+}
+
+
+.custom-button {
+    background-color: #8e67b8; /* Màu nền */
+    color: white; /* Màu chữ */
+    border: none; /* Không có viền */
+    padding: 10px 20px; /* Khoảng cách bên trong */
+    text-align: center; /* Căn giữa văn bản */
+    text-decoration: none; /* Bỏ gạch chân */
+    display: inline-block; /* Hiển thị inline block */
+    font-size: 20px; /* Kích thước chữ */
+    font-family: "Lobster", cursive;
+    margin: 4px 5px; /* Khoảng cách bên ngoài */
+    cursor: pointer; /* Con trỏ khi hover */
+    border-radius: 5px; /* Bo góc */
+    transition: background-color 0.3s; /* Hiệu ứng chuyển màu */
+    width: 200px;
+    height: 65px;
+
+}
+.custom-button:active{
+    transform: scale(0.95);
+}
+
+body {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    padding: 0px 0;
+    background-image: url("../html/pics/background4.jpg"); /* Add your image URL */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#img1 {
+    position: absolute;
+    top: 63%;
+    left: 30%;
+    width: 20%;
+}
+#hug {
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    width: 15%;
+}
+#img3 {
+    position: absolute;
+    top: 88.1%;
+    left: 39.9%;
+    width: 20%;
+}
+
+#gif1 {
+    position: absolute;
+    top: 35%;
+    left:30%;
+    width: 10%;
+}
+#gif2 {
+    position: absolute;
+    top: 44%;
+    left:60%;
+    width: 10%;
+}
+
+#gif3 {
+    position: absolute;
+    top: 20%;
+    left:75%;
+    width: 15%;
+}
+#gif4 {
+    position: absolute;
+    top: 6%;
+    left: 75%;
+    width: 12%;
+}
+#gif5 {
+    position: absolute;
+    top: 4%;
+    left: 15%;
+    width:15%;
+}
+
+#gif6 {
+    position: absolute;
+    top: 58%;
+    left: 10%;
+    width:15%;
+}
+
+#gif7 {
+    position: absolute;
+    top: 75%;
+    left: 70%;
+    width:20%;
+}
+
+#gif8 {
+    position: absolute;
+    top: 75%;
+    left: 25%;
+    width:20%;
+}

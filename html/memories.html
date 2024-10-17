@@ -5,15 +5,315 @@
     <title>Memories</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/styles.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="../css/memories.css"> <!-- Link to your CSS file -->
     <link href="https://fonts.google.com/share?selection.family=Lobster" rel="stylesheet">
-    <link href="https://fonts.google.com/share?selection.family=Baloo+2:wght@400..800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="pics/favicon.ico" type="image/x-icon">
+
 
 
 </head>
 <body>
+    <button onclick="goBackMenu()" class="custom-button" style="font-size: 20px; font-family: Lobster, cursive; width: auto; height: auto; position: absolute; left: 0%; top: 0%;">Go back</button>
+    <div class="text" id="welcometext"></div>
+    <div id="text2"></div>
+    <img id="building" src="../html/pics/building.png">
 
+    <div id = "floors">
+        <!-- updating -->
+        <div id = "sixth-floor">
+            <button class = "custom-button floor-button">Sixth floor</button>
+        </div>
+        <!-- iu nhao -->
+        <div id = "fifth-floor">
+            <button class = "custom-button floor-button">Fifth floor</button>
+        </div>
+        <!-- nchuyen lai -->
+        <div id = "fourth-floor">
+            <button class = "custom-button floor-button">Fourth floor</button>
+        </div>
+        <!-- ctay -->
+        <div id = "third-floor">
+            <button class = "custom-button floor-button">Third floor</button>
+        </div>
+        <!-- hồi iu nhau  -->
+        <div id = "second-floor">
+            <button class = "custom-button floor-button">Second floor</button>
+        </div>
+        <!-- hồi mới tán -->
+        <div id = "first-floor"> 
+            <button class = "custom-button floor-button">First floor</button>
+        </div>
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <button class="close" aria-label="Close modal">&times;</button>
+            
+            <!-- Slideshow container -->
+            <div class="slideshow-container">
+                <img id="modalImage" class="modal-image" src="" alt="Memory Image" style="border-radius: 25px;">
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+    
+            <!-- Text container below image -->
+            <p id="modalText"></p>
+    
+            <!-- New element for image-specific notes -->
+            <p id="imageNote"></p> <!-- This is new, added for each image's description -->
+        </div>
+    </div>
+    
+    
+    
+    
+    </div>
+    
+
+    <script>
+        
+        const text = "Chào mừng em tới Tòa nhà kí ức";
+        const text2 = "Hãy chọn tầng kí ức";
+        const textElement2= document.getElementById("text2")
+        const textElement = document.getElementById("welcometext");
+        const divElement = document.getElementById("floors")
+        let index = 0;
+        let c = 0;
+
+        function shown(){
+            textElement2.innerHTML = text2;
+        }
+        function popUpButtonClick1(){
+            divElement.style.display = 'inline-block';
+        }
+
+        function typeWriter() {
+            if (index < text.length) {
+                textElement.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, 100); // Hiển thị mỗi chữ cái sau 100ms
+            }
+        }
+        typeWriter();
+        setTimeout(shown, 4000); // Gọi hàm khi trang được tải
+        setTimeout(popUpButtonClick1,4000);
+        let slideIndex = 0;
+        let imagesArray = [];
+        let textArray = [];
+
+        // Function to open the modal and load the images and texts
+        function openModal(floorText, imageSrcArray, imageTextArray) {
+            const modal = document.getElementById("myModal");
+            const modalText = document.getElementById("modalText");
+
+            imagesArray = imageSrcArray;  // Load the images into an array
+            textArray = imageTextArray;   // Load the text into an array
+            slideIndex = 0;  // Start from the first image
+
+            modalText.innerHTML = floorText;  // Set the floor description
+            showSlides(slideIndex);  // Show the first image and its text
+            modal.style.display = "block";  // Show the modal
+        }
+
+        // Function to show the image and the corresponding text based on the current index
+        function showSlides(index) {
+            const modalImage = document.getElementById("modalImage");
+            const imageNote = document.getElementById("imageNote");  // Select the image note element
+
+            if (index >= imagesArray.length) {
+                slideIndex = 0;  // Loop back to the first image if exceeding bounds
+            } else if (index < 0) {
+                slideIndex = imagesArray.length - 1;  // Loop back to the last image if below bounds
+            }
+
+            modalImage.src = imagesArray[slideIndex];  // Update the image source
+            imageNote.innerHTML = textArray[slideIndex];  // Update the image note text
+        }
+
+
+        // Function to navigate through slides
+        function plusSlides(n) {
+            slideIndex += n;  // Increment or decrement slideIndex based on the button clicked
+            showSlides(slideIndex);  // Update the image and its note
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const closeButton = document.querySelector('.close');
+            if (closeButton) {
+                closeButton.addEventListener('click', function() {
+                    console.log("Close button clicked");
+                    document.getElementById("myModal").style.display = "none";
+                });
+            } else {
+                console.log("Close button not found");
+            }
+        });
+
+
+        // Close the modal when clicking outside of the modal content
+        window.onclick = function(event) {
+            const modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+        document.addEventListener('keydown', function(event) {
+            if (document.getElementById("myModal").style.display === "block") {
+                if (event.key === "ArrowRight") {
+                    plusSlides(1);
+                } else if (event.key === "ArrowLeft") {
+                    plusSlides(-1);
+                } else if (event.key === "Escape") {
+                    document.getElementById("myModal").style.display = "none";
+                }
+            }
+        });
+
+
+        // Open modal for First Floor
+        document.getElementById("first-floor").addEventListener("click", function() {
+            openModal("First floor: Chat up", [
+                "memopics/ca1.jpg",
+                "memopics/ca2.jpg",
+                "memopics/ca3.jpg",
+                "memopics/ca4.jpg",
+                "memopics/ca5.jpg",
+                "memopics/ca6.jpg",
+                "memopics/ca7.jpg",
+                "memopics/ca8.jpg",
+                "memopics/ca10.jpg"
+            ],
+            [
+                "Ảnh đầu tiên gây ấn tượng với Toàn",
+                "Rủ vô discord nói chuyện nì",
+                "Chị giáooo",
+                "Firstdate nma cổ bảo cổ không makeup = chắc khong iu nên kqtam Toàn nghĩ gì nhưng mà vẫn xinh nên tha thứ",
+                "Tô tượng nìi",
+                "Hơi tí sợ ngta gốt -_-",
+                "Cách cá tự dâng tiktok mà cá không bíc: ",
+                "Hơi tí sợ ngta gốt -_- (part 2)",
+                "Fav pic đời đầu hí hí"
+            ]);
+        });
+
+        // Open modal for Second Floor
+        document.getElementById("second-floor").addEventListener("click", function() {
+            openModal("Second floor: Loved up", [
+                "memopics/ca11.jpg",
+                "memopics/ca12.jpg",
+                "memopics/ca13.jpg",
+                "memopics/ca14.jpg",
+                "memopics/ca15.jpg",
+                "memopics/ca16.png",
+                "memopics/ca17.jpg",
+                "memopics/ca18.jpg",
+                "memopics/ca19.jpg",
+                "memopics/ca20.jpg",
+                "memopics/ca21.jpg",
+                "memopics/ca22.jpg",
+                "memopics/ca23.jpg",
+                "memopics/ca24.jpg",
+                "memopics/ca25.jpg",
+                "memopics/ca26.jpg",
+                "memopics/ca27.jpg",
+            ],
+            [
+                "Ở Vincom NCT nè",
+                "Hôm trước ai đó vừa quên đi với Toàn ở đây -_-",
+                "Toàn tặng cá con mèo lúc coi phim nì",
+                "Hít hà",
+                "First nắm tay",
+                "Ôm ngta quay nữa ngại quá hà, hôm nì là first kiss đó",
+                "Này app Jagat đúng khong nhở",
+                "Another fav pic",
+                "Qua nhà em nè",
+                "Quá cưng quá yêuu",
+                "Sau khi public -_-",
+                "Mèo cá mậpppp",
+                "Fav girl",
+                "Áo ai thêu mà đẹp",
+                "Nì anh đòi ăn bánh hoài xong được đi nè",
+                "ui tan chảy",
+                "29 ngày =)))))) nghe có vẻ sắp tới rồi đó"
+            ]);
+        });
+
+        // Open modal for Third Floor
+        document.getElementById("third-floor").addEventListener("click", function() {
+            openModal("Third floor: Break up", [
+                "memopics/warning.jpg",
+                "memopics/heartbroken.png",
+                "memopics/ca28.jpg",
+                "memopics/ca36.jpg",
+                "memopics/ca29.jpg",
+                "memopics/heartbroken.png",
+                "memopics/ca33.jpg",
+            ],
+            [
+                "",
+                "Warning rồi vẫn ấn -_-",
+                "Đây đây bắt đầu nè",
+                "Sự kết thúc",
+                "Sau sự kết thúc mấy phút -_-",
+                "Cổ đồng ý đi ăn rồi cổ từ chối",
+                "Éo cho coi nữa coi nữa lại giận a"
+            ]);
+        });
+
+        // Open modal for Fourth Floor
+        document.getElementById("fourth-floor").addEventListener("click", function() {
+            openModal("Fourth floor: Talk back", [
+                "memopics/ca34.jpg",
+                "memopics/ca35.jpg",
+                "memopics/thia.jpg",
+                "memopics/ca37.jpg",
+            ],
+            [
+                "Quá bất ngờ âu mai gọt ai nhắn mình thế nàyyyy",
+                "<3",
+                "thia ai",
+                "Chơi liqi với em"
+            ]);
+        });
+
+        // Open modal for Fifth Floor
+        document.getElementById("fifth-floor").addEventListener("click", function() {
+            openModal("Fifth floor: Second time Loved up", [
+                "memopics/ptb.jpg",
+                "memopics/food1.jpg",
+                "memopics/food2.jpg",
+                "memopics/bun.jpg",
+                "memopics/tamcam.jpg",
+                "memopics/skin.jpg",
+                "memopics/chicken.jpg",
+                "memopics/dooki.jpg",
+                "memopics/cat.jpg",
+            ],
+            [
+                "đi chụppp",
+                "đồ ai nấu mà ngon ghê",
+                "quạ nhìu món",
+                "bún đậu >>> bún riêu",
+                "nắm xôi... (lúc a code a còn rùng hết cả mình)",
+                "anh da den",
+                "cứt này ngon, cứt trình",
+                "gà éo cay mà em kêu cay",
+                "cafe mèo với emm"
+            ]);
+        });
+
+        // Open modal for Sixth Floor
+        document.getElementById("sixth-floor").addEventListener("click", function() {
+            openModal("Sixth floor: Updating...", [
+                "memopics/wedding.jpg",
+            ],
+            [
+                "Cái nì dành cho tương lai của chúng ta",
+            ]);
+        });
+
+
+    </script>
     <script src="../js/scripts.js"></script>
 </body>
-
 </html>

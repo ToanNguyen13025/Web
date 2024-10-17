@@ -8,22 +8,34 @@
     <link rel="stylesheet" href="../css/welcome_menu.css"> <!-- Link to your CSS file -->
     <link href="https://fonts.google.com/share?selection.family=Lobster" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="pics/favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            background-image: url('/html/pics/background1.jpg');
+            background-size: cover; /* Scales the image to cover the entire page */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Ensures the image doesn't repeat */
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 
 
 </head>
-<body style="background-color: #FF83A9;">
+<body>
     <div>
         <button onclick="goBack()" class="custom-button" style="font-size: 20px; font-family: Lobster, cursive; width: auto; height: auto;">Go back</button>
         <div class ="mid_container">
             <div>
-                <h1 id="menu_title" style="color: cornsilk; font-size: 60px">Nơi lưu giữ kỉ niệm của tụi mình<br>Choose option</h1>
+                <h1 id="menu_title" style="color: rgb(21, 183, 227); font-size: 60px">Nơi lưu giữ kỉ niệm của tụi mình<br>Choose option</h1>
                 <button id="infobutton" class="custom-button" style="position: absolute; top:32%; left: 33.7%; width: 500px;">Thông tin đàng trai và đàng gái</button><br>
                 <button id="timelinebutton" class="custom-button" style="position: absolute; top:47%; left: 33.7%; width: 500px;">Timeline</button><br>
                 <button id="memobutton" class="custom-button" style="position: absolute; top:62%; left: 33.7%; width: 500px;">Memories đáng remember</button><br>
-                <button id="picbutton" class="custom-button" style="position: absolute; top:77%; left: 33.7%; width: 500px;">Cute lovely pics</button><br>
+                <button id="goalsbutton" class="custom-button" style="position: absolute; top:77%; left: 33.7%; width: 500px;">Goals together</button><br>
             </div>
-            <img src = "pics/b040e76ad3b62145df9c938f4c96e5b8.jpg" alt="cat" style = "position: absolute; top:32%; left: 72%; width: 400px;">
-            <img src = "pics/Funny Cute Cat.jpg" alt = "cat" style = "position: absolute; top:32%; left: 2.7%; width: 390px;">
+            <img src = "pics/b040e76ad3b62145df9c938f4c96e5b8.jpg" alt="cat" style = "position: absolute; top:32%; left: 72%; width: 400px; border-radius: 25px;">
+            <img src = "pics/Funny Cute Cat.jpg" alt = "cat" style = "position: absolute; top:32%; left: 2.7%; width: 390px; border-radius: 25px">
         </div>
         <div>
 
@@ -44,8 +56,8 @@
             window.location.href = "../html/memories.html";
         });
 
-        picbutton.addEventListener("click", function () {
-            window.location.href = "../html/cutepics.html";
+        goalsbutton.addEventListener("click", function () {
+            window.location.href = "../html/goalsTogether.html";
         });
 
         timelinebutton.addEventListener("click", function () {

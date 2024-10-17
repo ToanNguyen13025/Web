@@ -72,6 +72,9 @@ li {
     height: 75px;
 
 }
+.custom-button:active{
+    transform: scale(0.95);
+}
 
 #catcode{
     position: absolute;
@@ -98,5 +101,5 @@ li {
     color:rgba(201, 228, 228, 0.947);
     position: absolute;
     top:43%;
-    left: 47.3%;
+    left: 47.2%;
 }
