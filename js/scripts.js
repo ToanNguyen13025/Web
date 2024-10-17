@@ -36,7 +36,7 @@ accessButton.addEventListener("click", function(){
 })
 
 function goBack() {
-    window.location.href="../html/welcome.html";
+    window.location.href="../html/index.html";
 }
 
 function goBackMenu() {
